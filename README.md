@@ -52,4 +52,4 @@ Join our community of developers creating universal apps.
 
 ~ Created by lavanya vajpayee
 
-stopped at: 24
+stopped at: 24:00

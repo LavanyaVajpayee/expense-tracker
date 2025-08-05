@@ -10,7 +10,7 @@ const Screenwrapper = ({style,children}:ScreenWrapperProps) => {
     return (
         //{[]} here we make an array to add more styles later if we want
     <View style={[{paddingTop,flex:1,
-        backgroundColor:colors.neutral900
+        backgroundColor:colors.white
     },style]}>
         <StatusBar barStyle={'dark-content'}/>
       {children}

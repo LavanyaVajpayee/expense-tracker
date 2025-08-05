@@ -21,3 +21,5 @@ const Screenwrapper = ({style,children}:ScreenWrapperProps) => {
 export default Screenwrapper
 
 const styles = StyleSheet.create({})
+
+// yaha kiya mene kiya 

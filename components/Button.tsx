@@ -1,6 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { CustomButtonProps } from '@/types'
+import { colors, radius } from '@/constants/theme'
+import { verticalScale } from '@/utils/styling'
+import Loading from './Loading'
 
 const Button = ({
     style,
@@ -8,13 +11,29 @@ const Button = ({
     loading=false,
     children
 }:CustomButtonProps) => {
+  if(loading){
+    return(
+      <View style={[styles.button,style,{backgroundColor:'transparent'}]}>
+        <Loading/>
+      </View>
+    )
+  }
   return (
-    <View>
-      <Text>Button</Text>
-    </View>
+  //to make an element clickable gives a good look
+    <TouchableOpacity onPress={onPress} style={[styles.button,style]}>
+    {children}
+    </TouchableOpacity>
   )
 }
 
 export default Button
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  button:{
+    backgroundColor:colors.primary,
+    borderRadius:radius._17,
+    justifyContent:"center",
+    height:verticalScale(92),
+    alignItems:"center"
+  }
+})

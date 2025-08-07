@@ -22,4 +22,3 @@ export default Screenwrapper
 
 const styles = StyleSheet.create({})
 
-// yaha kiya mene kiya 4jhgfd

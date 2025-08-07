@@ -5,6 +5,8 @@ import Typo from '@/components/Typo'
 import { spacingX, spacingY,colors } from '@/constants/theme'
 import { verticalScale } from '@/utils/styling'
 import { Image } from 'react-native'
+import Button from '@/components/Button'
+import Animated, { FadeIn, FadeInDown }  from 'react-native-reanimated'
 const Welcome = () => {
   return (
     <Screenwrapper>
@@ -14,23 +16,33 @@ const Welcome = () => {
           <TouchableOpacity style={styles.loginButton}> 
             <Typo fontWeight={"600"} style={{fontSize:25 ,color:colors.neutral800}} >Sign in</Typo>
           </TouchableOpacity>
-        <Image source={require('../../assets/images/welcome.png')} 
+          <Animated.Image
+          entering={FadeIn.duration(1000)}
+
+        source={require('../../assets/images/welcome.png')} 
         style={styles.welcomeImage}
-        resizeMode='contain'></Image>
+        resizeMode='contain'/>
         </View>
         <View style={styles.footer}>
-          <View style={{alignItems:"center"}}>
+          <Animated.View
+          entering={FadeInDown.duration(1000).springify().damping(12)} style={{alignItems:"center"}}>
             <Typo size={40} fontWeight={"400"}>Always take control</Typo>
             <Typo size={40} fontWeight={"400"}>of your finances</Typo>
-          </View>
+          </Animated.View>
         
-          <View style={{alignItems:"center",gap:2}}>
+          <Animated.View style={{alignItems:"center",gap:2}}
+           entering={FadeInDown.duration(1000).delay(100).springify().damping(12)}>
             <Typo size={24} color={colors.textLight}>Finance must be arrangedto set a better</Typo>
-            <Typo size={24} color={colors.textLight}>lifeestyke in future</Typo>
-          </View>
-        <View style={styles.buttonContainer}>
-          
-        </View>
+            <Typo size={24} color={colors.textLight}>lifestyle in future</Typo>
+          </Animated.View>
+        <Animated.View style={styles.buttonContainer}
+         entering={FadeInDown.duration(1000).delay(200).springify().damping(12)}>
+          <Button>
+            <Typo size={45} fontWeight={500}>
+              Get Started
+            </Typo>
+            </Button>
+        </Animated.View>
         </View>
       </View>
     </Screenwrapper>

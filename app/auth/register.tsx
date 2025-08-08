@@ -7,7 +7,8 @@ import { colors, spacingX, spacingY } from '@/constants/theme'
 import { verticalScale } from '@/utils/styling'
 import { useRouter } from 'expo-router'
 import * as Icons from 'phosphor-react-native'
-import React, { useRef, useState } from 'react'
+import React from 'react'
+import { useRef, useState } from 'react'
 import { Alert, Pressable, StyleSheet, View } from 'react-native'
 const Register = () => {
   //we could also usestate but that would always re render whenever user types a value
@@ -16,7 +17,7 @@ const Register = () => {
   const nameref=useRef("");
   const router=useRouter();
   const handlesubmit=async()=>{
-    if(!emailref.current || !passref.current||nameref){
+    if(!emailref.current || !passref.current|| !nameref){
       Alert.alert("Login","Please fill all the fields");
       return;
     }
@@ -32,7 +33,7 @@ const Register = () => {
             {/* {{}} this shows we are using javascript */}
             <View style={{gap:5, marginTop:spacingY._20}}>
                 <Typo size={60} fontWeight={700} style={{color:colors.black}}>Let's </Typo>
-                <Typo size={60} fontWeight={700} style={{color:colors.black}}>Get Startedk</Typo>
+                <Typo size={60} fontWeight={700} style={{color:colors.black}}>Get Started</Typo>
             </View>
             <View style={styles.form}>
                 <Typo size={44} style={{color:"black"}}>
@@ -50,7 +51,7 @@ const Register = () => {
             // so that info is hidden
             secureTextEntry
             onChangeText={(value)=>(passref.current=value)}
-            placeholder='Enter Password' icon={<Icons.LockIcon size={verticalScale(35)} weight='fill'/>} />
+            placeholder='Enter Password' icon={<Icons.Lock size={verticalScale(35)} weight='fill'/>} />
             
           <Button loading={isLoading}onPress={handlesubmit}>
             <Typo fontWeight={'600'} color={colors.black} size={38}>Sign Up</Typo>

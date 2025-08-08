@@ -55,3 +55,14 @@ Join our community of developers creating universal apps.
 stopped at: 24:00
 stopped at: 31:07
 stopped at: 39:11
+stopped at: 4.5:29
+
+
+ctrl+shift+p then restart typescript 
+firebase add process:
+1. console.firebase.google.com
+2. cretae a firebase project
+3. name your application and agree to the terms and condition
+4. install the packag for firebase
+5. react-native-async-storage/async-storage install this too
+

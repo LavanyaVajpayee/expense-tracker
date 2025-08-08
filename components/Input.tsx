@@ -2,6 +2,7 @@ import { colors, spacingX } from '@/constants/theme'
 import { InputProps } from '@/types'
 import { verticalScale } from '@/utils/styling'
 import React from 'react'
+import { radius } from '@/constants/theme'
 import { StyleSheet, TextInput, View } from 'react-native'
 const Input = (props:InputProps) => {
   return (
@@ -12,8 +13,9 @@ const Input = (props:InputProps) => {
         }
       <TextInput
       style={[styles.input, props.inputStyle]}
-      placeholderTextColor={colors.neutral400}
+      placeholderTextColor={colors.black}
       ref={props.inputRef}
+      {...props}
       />
     </View>
   )
@@ -23,20 +25,22 @@ export default Input
 
 const styles = StyleSheet.create({
     container:{
-        height:verticalScale(54),
+        height:verticalScale(84),
         borderWidth:1,
         width:'100%',
         borderColor:colors.black,
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"center",
-        borderRadius:17,
+        borderRadius:radius._17,
         paddingHorizontal:spacingX._15,
         gap: spacingX._10,
     },
     input:{
         flex:1,
         color:colors.black,
-        fontSize:verticalScale(15)
+        fontSize:verticalScale(25),
+        textAlign:'left',
+
     }
 })

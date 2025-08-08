@@ -1,7 +1,6 @@
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 import { colors } from '@/constants/theme'
-import { ActivityIndicatorProps } from 'react-native'
+import React from 'react'
+import { ActivityIndicator, ActivityIndicatorProps, StyleSheet, View } from 'react-native'
 const Loading = ({
     size="large",
     color=colors.primary
@@ -9,7 +8,8 @@ const Loading = ({
     //this ensures that the props follow the shape of the component
 }:ActivityIndicatorProps) => {
   return (
-    <View style={{flex:1,justifyContent:'center', alignItems:'center'}}>
+    <View style={{flex:1,
+    justifyContent:'center', alignItems:'center'}}>
       <ActivityIndicator size={size} color={color}/>
     </View>
   )

@@ -7,21 +7,26 @@ import { colors, spacingX, spacingY } from '@/constants/theme'
 import { verticalScale } from '@/utils/styling'
 import { useRouter } from 'expo-router'
 import * as Icons from 'phosphor-react-native'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Alert, Pressable, StyleSheet, View } from 'react-native'
+import { useAuth } from '@/contexts/authContext'
 const Login = () => {
   //we could also usestate but that would always re render whenever user types a value
   const emailref=useRef("");
   const passref=useRef("");
   const router=useRouter();
+  const{login:loginUser}=useAuth();
   const handlesubmit=async()=>{
     if(!emailref.current || !passref.current){
       Alert.alert("Login","Please fill all the fields");
       return;
     }
-    console.log(emailref);
-    console.log(passref);
-    console.log("Good to go");
+    setloading(true)
+    const res=await loginUser(emailref.current,passref.current);
+    setloading(false);
+    if(!res.success){
+      Alert.alert("Login","Invalid credentials");
+    }
   }
   const [isLoading,setloading]=useState(false)
   return (

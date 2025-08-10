@@ -9,6 +9,7 @@ import { useRouter } from 'expo-router'
 import * as Icons from 'phosphor-react-native'
 import React from 'react'
 import { useRef, useState } from 'react'
+import { useAuth } from '@/contexts/authContext'
 import { Alert, Pressable, StyleSheet, View } from 'react-native'
 const Register = () => {
   //we could also usestate but that would always re render whenever user types a value
@@ -16,16 +17,22 @@ const Register = () => {
   const passref=useRef("");
   const nameref=useRef("");
   const router=useRouter();
+  //de-structruring taking the property called register and naming it registerUser
+  const{register:registerUser}=useAuth();
+  const [isloading,setLoading,]=useState(false)
   const handlesubmit=async()=>{
     if(!emailref.current || !passref.current|| !nameref){
       Alert.alert("Login","Please fill all the fields");
       return;
     }
-    console.log(emailref);
-    console.log(passref);
-    console.log("Good to go");
-  }
-  const [isLoading,setloading]=useState(false)
+    setLoading(true);
+    const res=await registerUser(emailref.current,passref.current,nameref.current);
+    setLoading(false);
+    console.log("register result",res)
+    if(!res.success){
+      Alert.alert("Sign Up",res.msg)
+    }
+  };
   return (
     <Screenwrapper>
         <View style={styles.container}>
@@ -53,7 +60,7 @@ const Register = () => {
             onChangeText={(value)=>(passref.current=value)}
             placeholder='Enter Password' icon={<Icons.Lock size={verticalScale(35)} weight='fill'/>} />
             
-          <Button loading={isLoading}onPress={handlesubmit}>
+          <Button loading={isloading}onPress={handlesubmit}>
             <Typo fontWeight={'600'} color={colors.black} size={38}>Sign Up</Typo>
           </Button>
         <View style={styles.footer}>

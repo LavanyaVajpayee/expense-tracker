@@ -134,7 +134,7 @@ export type ImageUploadProps = {
 
 export type UserType = {
  uid?: string;
- email?: string;
+ email?: string|null;
  name: string | null;
  image?: any;
 } | null;

@@ -66,3 +66,17 @@ firebase add process:
 4. install the packag for firebase
 5. react-native-async-storage/async-storage install this too
 
+FIRESTORE
+->a NO-SQL database(documents ,folders and files)
+->cloud hosted on Google's firebase
+->works in real time
+->
+Firestore
+ └── Collection: "users" like a folder
+      ├── Document: "uid_12345" single record
+      │     ├── name: "Lavanya"              |-field with
+      │     ├── email: "lavanya@example.com" |key value
+      │     └── uid: "uid_12345"             | pair
+      ├── Document: "uid_67890"
+      │     ├── name: "Amit"
+      │     ├── email: "amit@example.com"

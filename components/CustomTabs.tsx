@@ -88,13 +88,13 @@ const styles = StyleSheet.create({
     tabbar:{
         flexDirection: 'row' , 
         width:"100%", 
-        height:verticalScale(95),
+        height:"7%",
         backgroundColor:colors.neutral800,
         justifyContent:"space-around",
         alignItems:"center",
         borderTopColor:colors.white,
-        borderTopWidth:1,
-        borderBottomWidth:5,
+        // borderTopWidth:1,
+        // borderBottomWidth:5,
         marginVertical:spacingY._20
         
         

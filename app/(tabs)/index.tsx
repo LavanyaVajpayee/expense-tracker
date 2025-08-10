@@ -17,10 +17,10 @@ const Home = () => {
   return (
     <Screenwrapper>
       <Typo fontWeight={800} size={50}>Home</Typo>
-      <Button style={{borderRadius: 20 }} onPress={handleLogout} >
+      {/* <Button style={{borderRadius: 20 }} onPress={handleLogout} >
         <Typo fontWeight={600} color='black' size={verticalScale(65)}>Logout
           </Typo> 
-          </Button>
+          </Button> */}
     </Screenwrapper>
   )
 }

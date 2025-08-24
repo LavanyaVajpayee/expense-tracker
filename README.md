@@ -86,3 +86,5 @@ make the deafult avatar more round on the bottom and light grey
 is there a reason for (auth) (tabs) () ??
 when i type a npm or npx command does it automatically convert to yarn?
 check if name is being updated
+
+Cloudinary

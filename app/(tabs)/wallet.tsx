@@ -6,12 +6,23 @@ import { verticalScale } from '@/utils/styling'
 import Typo from '@/components/Typo'
 import * as Icons from 'phosphor-react-native'
 import { useRouter } from 'expo-router'
+import useFetchData from '@/hooks/useFetchData'
+import { WalletType } from '@/types'
+import { useAuth } from '@/contexts/authContext'
+import { orderBy, where } from 'firebase/firestore'
 
 const Wallet = () => {
   const gettotalbal=()=>{
     return 2556038942.4893256;
   }
   const router=useRouter()
+  // why is user in {}
+  const {user}=useAuth();
+  const{data:wallets,error,loading}=useFetchData<WalletType>("wallet",[
+    where("uid","==",user?.uid),
+    orderBy("created","desc"),
+  ]);
+  console.log("wallet:", wallets.length)
   return (
     <Screenwrapper style={{backgroundColor:colors.black}}>
       <View style={styles.container}>

@@ -49,7 +49,6 @@ Join our community of developers creating universal apps.
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
-
 ~ Created by lavanya vajpayee
 
 stopped at: 24:00
@@ -57,9 +56,9 @@ stopped at: 31:07
 stopped at: 39:11
 stopped at: 4.5:29
 
-
-ctrl+shift+p then restart typescript 
+ctrl+shift+p then restart typescript
 firebase add process:
+
 1. console.firebase.google.com
 2. cretae a firebase project
 3. name your application and agree to the terms and condition
@@ -72,15 +71,14 @@ FIRESTORE
 ->works in real time
 ->
 Firestore
- └── Collection: "users" like a folder
-      ├── Document: "uid_12345" single record
-      │     ├── name: "Lavanya"              |-field with
-      │     ├── email: "lavanya@example.com" |key value
-      │     └── uid: "uid_12345"             | pair
-      ├── Document: "uid_67890"
-      │     ├── name: "Amit"
-      │     ├── email: "amit@example.com"
-
+└── Collection: "users" like a folder
+├── Document: "uid_12345" single record
+│ ├── name: "Lavanya" |-field with
+│ ├── email: "lavanya@example.com" |key value
+│ └── uid: "uid_12345" | pair
+├── Document: "uid_67890"
+│ ├── name: "Amit"
+│ ├── email: "amit@example.com"
 
 make the deafult avatar more round on the bottom and light grey
 is there a reason for (auth) (tabs) () ??
@@ -88,3 +86,5 @@ when i type a npm or npx command does it automatically convert to yarn?
 check if name is being updated
 
 Cloudinary
+
+//explain where we have defibed apis

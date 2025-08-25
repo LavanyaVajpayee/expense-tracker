@@ -1,6 +1,6 @@
 import { firestore } from "@/cofig/firebase";
 import { ResponseType, WalletType } from "@/types";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, setDoc } from "firebase/firestore";
 import { uploadFiletocloudinary } from "./imageService";
 
 export const createOrupdatewallet = async (
@@ -10,7 +10,8 @@ export const createOrupdatewallet = async (
     //variable for all the data
     let walletTosave = { ...walletData };
     if (walletData.image) {
-      const imguploadres = await uploadFiletocloudinary(//uploads to cloudinary
+      const imguploadres = await uploadFiletocloudinary(
+        //uploads to cloudinary
         walletData.image,
         "wallets"
       );
@@ -33,16 +34,27 @@ export const createOrupdatewallet = async (
 
     //check what's going on here
     //i think walletref mei we store uss wallet ka info
-    //jisse it can and be saved in the firestore agar vo id 
+    //jisse it can and be saved in the firestore agar vo id
     //exist nahi karti toh uske liye naya collection banayenge
     const walletRef = walletData?.id
-      ? doc(firestore, "wallets", walletData.id)
+      ? doc(firestore, "wallet", walletData.id)
       : doc(collection(firestore, "wallet"));
-//actual upgradation happems here
-      await setDoc(walletRef,walletTosave,{merge:true})//updates jo bhi naya change kia ho
-      return{success:true,data:{...walletTosave, id:walletRef.id}}
+    //actual upgradation happems here
+    await setDoc(walletRef, walletTosave, { merge: true }); //updates jo bhi naya change kia ho
+    return { success: true, data: { ...walletTosave, id: walletRef.id } };
   } catch (error: any) {
     console.log("Error creating or updating the wallet", error);
     return { success: false, msg: error.message };
+  }
+};
+
+export const deleteWallet = async (walletId: string): Promise<ResponseType> => {
+  try {
+    const walletref = doc(firestore, "wallet", walletId);
+    await deleteDoc(walletref);
+    return { success: true, msg: "wallet deleted successfully" };
+  } catch (err: any) {
+    console.log("error deleting wallet: ", err);
+    return { success: false, msg: err.message };
   }
 };

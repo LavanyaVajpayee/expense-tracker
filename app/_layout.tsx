@@ -17,6 +17,12 @@ const StackLayout = () => {
           presentation: "modal",
         }}
       />
+      <Stack.Screen
+        name="(modals)/transactionModal"
+        options={{
+          presentation: "modal",
+        }}
+      />
       {/* explain properly why did we do this? */}
     </Stack>
   );

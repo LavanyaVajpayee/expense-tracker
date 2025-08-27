@@ -23,6 +23,12 @@ const StackLayout = () => {
           presentation: "modal",
         }}
       />
+      <Stack.Screen
+        name="(modals)/searchModal"
+        options={{
+          presentation: "modal",
+        }}
+      />
       {/* explain properly why did we do this? */}
     </Stack>
   );

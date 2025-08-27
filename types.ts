@@ -66,6 +66,7 @@ export type HeaderProps = {
 };
 
 export type TransactionType = {
+  id?: string;
   amount: number;
   title: string;
   type: string;

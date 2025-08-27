@@ -88,3 +88,5 @@ check if name is being updated
 Cloudinary
 
 //explain where we have defibed apis
+category in transactionModal
+description box in transactionModal

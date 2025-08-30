@@ -88,5 +88,14 @@ check if name is being updated
 Cloudinary
 
 //explain where we have defibed apis
-category in transactionModal
-description box in transactionModal
+
+BUGS:
+
+1. Other category in transactionModal
+2. description box in transactionModal
+3. No transactions showing in statistics page
+4. splash screen not visible
+5. UI/UX
+6. convert icon to button on the customs tab
+7. make the custom footer lower
+8. build APK
